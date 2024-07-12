@@ -1,0 +1,26 @@
+name: Analyze Student Performance
+
+on: [push]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install SQLite
+      run: sudo apt-get install sqlite3
+
+    - name: Run data insertion script
+      run: python insert_data.py
+
+    - name: Run performance analysis script
+      run: python perform_operations.py
+
