@@ -24,3 +24,8 @@ jobs:
     - name: Run performance analysis script
       run: python perform_operations.py
 
+    - name: Upload database file
+      uses: actions/upload-artifact@v2
+      with:
+        name: students_performance_db
+        path: StudentsPerformance.db
