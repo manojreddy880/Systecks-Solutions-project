@@ -4,12 +4,12 @@ import sqlite3
 conn = sqlite3.connect('StudentsPerformance.db')
 cursor = conn.cursor()
 
-# Operation 1: Filter by Gender
 print("Filter by Gender:")
 cursor.execute("SELECT * FROM performance WHERE gender = 'female'")
-female_students = cursor.fetchall()
+female_students = cursor.fetchall()  # Fetch all rows that match the query
+
 for student in female_students:
-    print(student)
+    print(student)  # Adjust print statement as needed based on your database schema
 
 # Operation 2: Aggregate Scores by Race/Ethnicity
 print("\nAggregate Scores by Race/Ethnicity:")
